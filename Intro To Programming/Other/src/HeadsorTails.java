@@ -73,7 +73,7 @@ public class HeadsorTails {
 			}
 		}
 		else {
-			System.out.println(x + "is not an option.");
+			System.out.println(x + " is not an option.");
 			
 			playAgain();
 		}
