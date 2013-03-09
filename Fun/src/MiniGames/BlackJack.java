@@ -8,8 +8,10 @@ public class BlackJack {
 	private static Random rand = new Random();
 	
 	public static void main(String[] args) {
-		dealer();
-		player();
+		
+		int dealer = dealer();
+		int player = player();
+		getResult(dealer, player);
 	}
 	
 	public static int dealer() {
@@ -25,7 +27,7 @@ public class BlackJack {
 		String hit;
 		
 		do {
-			y = rand.nextInt(11) + 1;
+			y = y + rand.nextInt(11) + 1;
 			if(y == 11) {
 				System.out.println("You pulled an ace use as 1 or ll?");
 				y = scan.nextInt();
@@ -34,13 +36,18 @@ public class BlackJack {
 			System.out.println("You have " + y);
 			System.out.println("Hit or Stay?");
 			hit = scan.nextLine();
-		} while (y < 21 || hit.equals("hit"));
+		} while (y < 21 && hit.equals("hit"));
 		
 		return y;
 	}
 	
 	public static void getResult(int dealer , int player) {
-		
+		if(dealer == 21 && player == 21)
+			System.out.println("You lost, the dealer has 21");
+		else if(dealer > player)
+			System.out.println("You lost the dealer had " + dealer);
+		else if(dealer < player)
+			System.out.println("YOU WON!");
 	}
 
 }
