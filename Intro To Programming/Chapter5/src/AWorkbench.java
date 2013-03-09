@@ -47,7 +47,7 @@ public class AWorkbench {
 	
 	private static void nine() {	//.Algorithm work bench: Question 9
 		
-		for (int count = 0 ; count <= 50 ; count++) {
+		for (int count = 0 ; count < 50 ; count++) {
 			System.out.println("The count is: " + count);
 		}
 	}
