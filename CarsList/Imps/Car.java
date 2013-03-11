@@ -1,33 +1,31 @@
 package Imps;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class Car {
 	
-	public List<String> Cars = new ArrayList<String>();
-
-	public List<String> getAll() {
-
-		Cars.add(getModel());
-		Cars.add(getReg());
+	public static Scanner scan = new Scanner(System.in);
+	
+	public List<String> Models = new ArrayList<String>();
+	public List<String> Registration = new ArrayList<String>();
+	
+	public void getInfo() {
+		System.out.println("Input Model");
+			String m = scan.next();
 		
-		return Cars;
+		System.out.println("Input Registration");
+			String r = scan.next();
+	
+	this.Models.add(m);
+	this.Registration.add(r);
 	}
 	
-	public String getModel() {
-		String model = "Chev";
+	public void print() {
+		int holder = 0;
 		
-		return model;
+		for(String item : Models) {
+			System.out.println("[" + item + " , " + Registration.toArray()[holder] + "]");
+		}
 	}
-	
-	public String getReg() {
-		String reg;
-		
-		reg = "m87v67";
-		
-		return reg;
-	}
-	
 }
