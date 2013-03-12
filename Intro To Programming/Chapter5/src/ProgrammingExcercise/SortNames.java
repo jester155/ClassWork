@@ -10,7 +10,6 @@ public class SortNames {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		List<String> names = new ArrayList<String>();
-			ListIterator<String> iterator = names.listIterator();
 		
 		System.out.println("How many names would you like to enter");
 		int choice = scan.nextInt();
@@ -23,14 +22,14 @@ public class SortNames {
 		
 		Collections.sort(names);
 		
-		int e = names.size() - 1;
-		int a = names.size();
-		
-		String[] sorted = new String[a];
+		String[] sorted = new String[names.size()];
 		names.toArray(sorted);
 		
 		System.out.println(sorted[0]);
-		System.out.println(sorted[e]);
+		System.out.println(sorted[names.size() - 1]);
+		
+		
+		//.EVERYTHING BELOW THIS LINE WAS FIRST ATTEMPT.//
 		
 		//for(String items : names) {
 			
