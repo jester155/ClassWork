@@ -9,7 +9,36 @@ public class SortNames {
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String[] names = new String[3];
+		List<String> names = new ArrayList<String>();
+			ListIterator<String> iterator = names.listIterator();
+		
+		System.out.println("How many names would you like to enter");
+		int choice = scan.nextInt();
+		
+		for(int i = 0 ; i < choice ; i++) {
+			System.out.println("Enter in a new name");
+			String name = scan.next();
+			names.add(name);
+		}
+		
+		Collections.sort(names);
+		
+		int e = names.size() - 1;
+		int a = names.size();
+		
+		String[] sorted = new String[a];
+		names.toArray(sorted);
+		
+		System.out.println(sorted[0]);
+		System.out.println(sorted[e]);
+		
+		//for(String items : names) {
+			
+		//}
+			
+		
+		/*
+		 * String[] names = new String[3];
 		
 		System.out.println("Enter in a name");
 		String a = scan.nextLine();
@@ -27,7 +56,7 @@ public class SortNames {
 		
 		for(String items : names)
 			System.out.println(items);
-		
+		*/
 	}
 
 }
