@@ -41,7 +41,7 @@ public class Lopps {
 	}
 	private static void whileLoop() {
 		
-			while (u.equals("yes")) {
+		while (u.equals("yes")) {
 			System.out.println("Doing something?");
 			u = s.next();
 		}
