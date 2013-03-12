@@ -4,11 +4,10 @@ import java.util.*;
 
 public class SortNames {
 
-	/**
-	 * @param args
-	 */
+	public static Scanner scan = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
+		
 		List<String> names = new ArrayList<String>();
 		
 		System.out.println("How many names would you like to enter");
