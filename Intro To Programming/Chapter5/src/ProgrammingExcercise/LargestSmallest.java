@@ -1,37 +1,52 @@
 //Mark Provenzano
 package ProgrammingExcercise;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class LargestSmallest {
 
-	@SuppressWarnings("unused")
+	public static List<Integer> numbers = new ArrayList<>();
+	public static Scanner in = new Scanner(System.in);
+	
 	public static void main(String[] args) {
+	
+		LargestSmallest lS = new LargestSmallest();
 		
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter in a series of numbers");
-		
-		int x = scan.nextInt(); 
-		int y = 0;
-		int holder1 = 0;
-		int holder2 = 0;
-		
-		while(x != -99) {
-			
-			y = x;
-			
-			x = scan.nextInt();
-			int z = x;
-			
-			 
-			
-			if(x > y)
-				holder1 = x;
-			
-			if(x < y && z != -99 && y != 0 && x != 0)
-				holder2 = x;
-		}
-		System.out.println(holder1 + " , " + holder2);
+		lS.setNumbers();
+		lS.print();
 	}
-
+	
+	public void setNumbers() {
+		System.out.println("Enter in a series of numbers");
+		System.out.println("Enter -99 to stop");
+		int x = 0;
+		
+		do {
+			x = in.nextInt();
+			
+			if(x != -99)
+				numbers.add(x);
+			
+		} while (x != -99);
+		
+		organize();
+	}
+	
+	public void print() {
+		
+		int[] list = new int[numbers.size()];
+		int i = 0;
+		
+		for(int item : numbers){
+			list[i] = item;
+			i++;
+		}
+		
+		System.out.println(list[0]);
+		System.out.println(list[numbers.size() - 1]);
+	}
+	
+	public void organize() {
+		Collections.sort(numbers);
+	}
 }
