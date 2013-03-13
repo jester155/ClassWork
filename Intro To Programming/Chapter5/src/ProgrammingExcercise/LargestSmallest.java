@@ -16,7 +16,7 @@ public class LargestSmallest {
 		lS.print();
 	}
 	
-	public void setNumbers() {
+	public void setNumbers() { //.Sets the numbers that are going into the Array list
 		System.out.println("Enter in a series of numbers");
 		System.out.println("Enter -99 to stop");
 		int x = 0;
@@ -32,7 +32,7 @@ public class LargestSmallest {
 		organize();
 	}
 	
-	public void print() {
+	public void print() { //.Prints out the first and last number of an array
 		
 		int[] list = new int[numbers.size()];
 		int i = 0;
@@ -46,7 +46,7 @@ public class LargestSmallest {
 		System.out.println(list[numbers.size() - 1]);
 	}
 	
-	public void organize() {
+	public void organize() { //.Organizes the array list
 		Collections.sort(numbers);
 	}
 }

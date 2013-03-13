@@ -10,17 +10,14 @@ public class SumOfNumbers {
 		System.out.println("Enter in a series of numbers.\nEnter in a negative number to exit the loop.");
 		
 		int sum = 0;		
-		int y = 0;
+		int x = 0;
 		
-		while(y  == 0) {
+		while(x >= 0) {
 			
-			int x = scan.nextInt();
+			x = scan.nextInt(); //.Variable of x is in the loop so that its not initialized out of the loop.
 			
-			if(x > 0)
+			if(x >= 0) //.If x is less than 0 then it is not added to sum.
 				sum = sum + x;
-			
-			if(x < 0)
-				y = -1;
 		}
 		
 		System.out.println("Your total is: " + sum);
