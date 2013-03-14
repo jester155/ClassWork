@@ -12,7 +12,7 @@ public class BugCollector {
 		int collection = 0;
 		int days = 0;
 		
-		System.out.println("You will enter tyhe number of bugs you have collected over the last 7 days");
+		System.out.println("You will enter the number of bugs you have collected over the last 7 days");
 		
 		for(int i = 1 ; i <= 7 ; i++) {
 			System.out.println("How many bugs were collected on day " + i );

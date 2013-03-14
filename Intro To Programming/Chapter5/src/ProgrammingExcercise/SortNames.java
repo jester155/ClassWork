@@ -35,12 +35,12 @@ public class SortNames {
 			String name = scan.next();
 			names.add(name);
 			
-			organize();
+			organizeNames();
 		}
 			
 	}
 	
-	public void organize() {
+	public void organizeNames() {
 		Collections.sort(names);
 	}
 
