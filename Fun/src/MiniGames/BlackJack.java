@@ -1,90 +1,57 @@
 package MiniGames;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+
 
 public class BlackJack {
-	private static Scanner scan = new Scanner(System.in);
-	private static Random rand = new Random();
-	
+
+		private static Scanner s = new Scanner(System.in);
+		private static Random r = new Random();
+		
 	public void start() {
-		System.out.println("Welcome to Black Jack");
-		System.out.println("Remember dealer always wins in ties and you loose if you go over 21");
-		
-		int dealer = dealer();
-		int player = player();
-		
-		int dealer1[] = dealerConversion(dealer);
-		
-		int real = dealer1[0];
-		int convert = dealer1[1];
-		
-		getResult(real, player, convert);
+		int d = dealer();
+		int p = player();
+		getResult(p , d);
 	}
 	
-	public int[] dealerConversion(int dealer) {
+	private int dealer() {
 		
-		int real;
-		int convert;
+		int d = 0;
 		
-		if(dealer > 21) {
-			real = dealer;
-			convert = 0;
-		return new int[] {real, convert};
+		while(d < 16) {
+			d = d + r.nextInt(11) + 1;
 		}
-		else {
-			real = dealer;
-			convert = dealer;
-		return new int[]{dealer, convert};
-		}
+		
+		return d;
 	}
 	
-	public static int dealer() {
-		int x = rand.nextInt(11) + 1;
+	private int player() {
+		int p = 0;
+		String decision = "hit";
 		
-		do {
-			x = x + rand.nextInt(11) + 1;
-		} while(x < 16);
-
-			return x;
-	}
-	
-	public static int player() {
-		int y = 0;
-		String hit = "hit";
-		
-		while(y <= 21 && hit.equals("hit")) {
-			y = y + rand.nextInt(11) + 1;
+		while(p <= 21 && decision.equals("hit")) {
 			
-			if (y >= 21) {
-				hit = "stay";
-			}
+			p = p + r.nextInt(11) + 1;
+			
+			System.out.println("You have " + p);
+			
+			if(p > 21)
+				decision = "stay";
 			else {
-			System.out.println("You have " + y);
-			System.out.println("Hit or Stay?");
-			hit = scan.nextLine();
+				System.out.println("Hit or stay?");
+					decision = s.next();
 			}
+			
+				
 		}
 		
-		return y;
+		return p;
 	}
 	
-	
-	public static void getResult(int dealer , int player , int conversion) {
-		if(conversion == 21 && player == 21)
-			System.out.println("You lost, the dealer has 21");
-		else if(conversion > player && player <= 21)
-			System.out.println("You lost the dealer had " + dealer);
-		else if(conversion < player && player <= 21)
-			System.out.println("YOU WON!\n You had " + player + " Dealer had " + dealer);
-		else if(conversion > 21 && player > 21) {
-			System.out.println("You lost!\n You had " + player + " Dealer had " + dealer);
-		}
-		else if(player == conversion) {
-			System.out.println("You lost!\n You had " + player + " Dealer had " + dealer);
-		}
+	private void getResult(int p , int d) {
+		if(p > d && p <= 21 || d > 21)
+			System.out.println("you won!\nYou had: " + p + "\nDealer had: " + d);
 		else
-			System.out.println("You lost you went over 21. you had " + player + " Dealer had " + dealer);
+			System.out.println("You lost\nYou had: " + p + "\nDealer had: " + d);
 	}
-
 }
