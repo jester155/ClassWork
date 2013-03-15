@@ -1,3 +1,9 @@
+/*
+ * Black Jack Logic
+ * created by: Mark Provenzano
+ * Feel free to make changes to the code to be more efficient.
+ * I am always willing to learn.
+ */
 package MiniGames;
 
 import java.util.*;
@@ -7,14 +13,15 @@ public class BlackJack {
 
 		private static Scanner s = new Scanner(System.in);
 		private static Random r = new Random();
+		private int[] numbers = new int[2];
 		
 	public void start() {
-		int d = dealer();
-		int p = player();
-		getResult(p , d);
+		dealer();
+		player();
+		getResult(numbers[1] , numbers[0]);
 	}
 	
-	private int dealer() {
+	private void dealer() {
 		
 		int d = 0;
 		
@@ -22,10 +29,10 @@ public class BlackJack {
 			d = d + r.nextInt(11) + 1;
 		}
 		
-		return d;
+		numbers[0] = d;
 	}
 	
-	private int player() {
+	private void player() {
 		int p = 0;
 		String decision = "hit";
 		
@@ -40,15 +47,15 @@ public class BlackJack {
 			else {
 				System.out.println("Hit or stay?");
 					decision = s.next();
-			}
-			
+			}	
 				
 		}
 		
-		return p;
+		numbers[1] = p;
 	}
 	
 	private void getResult(int p , int d) {
+		
 		if(p > d && p <= 21 || d > 21)
 			System.out.println("you won!\nYou had: " + p + "\nDealer had: " + d);
 		else
