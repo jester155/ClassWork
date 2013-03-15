@@ -56,8 +56,10 @@ public class BlackJack {
 	
 	private void getResult(int p , int d) {
 		
-		if(p > d && p <= 21 || d > 21)
+		if(p > d && p <= 21)
 			System.out.println("you won!\nYou had: " + p + "\nDealer had: " + d);
+		else if(p > 21)
+			System.out.println("You lost\nYou had: " + p + "\nDealer had: " + d);
 		else
 			System.out.println("You lost\nYou had: " + p + "\nDealer had: " + d);
 	}
