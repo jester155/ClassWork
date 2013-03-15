@@ -36,7 +36,7 @@ public class BlackJack {
 		int p = 0;
 		String decision = "hit";
 		
-		while(p <= 21 && decision.equals("hit")) {
+		while(p < 21 && decision.equals("hit")) {
 			
 			p = p + r.nextInt(11) + 1;
 			
