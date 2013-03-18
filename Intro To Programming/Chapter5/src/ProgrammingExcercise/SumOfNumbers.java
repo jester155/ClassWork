@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class SumOfNumbers {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter in a series of numbers.\nEnter in a negative number to exit the loop.");
