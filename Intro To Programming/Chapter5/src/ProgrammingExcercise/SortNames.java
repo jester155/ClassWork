@@ -19,11 +19,11 @@ public class SortNames {
 	public void print() {
 		String[] sorted = new String[names.size()];
 		names.toArray(sorted);
-		
-		for(String item : names) {
+
+		for(String item : names) 
 			if(item.equalsIgnoreCase(sorted[0]) || item.equalsIgnoreCase(sorted[names.size() - 1]))
 				System.out.println(item);
-		}
+		
 	}
 	
 	public void setNames() {

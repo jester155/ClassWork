@@ -38,16 +38,12 @@ public class LargestSmallest {
 		int i = 0;
 		
 		for(int item : numbers){
-			list[i] = item;
+			list[i++] = item;
 			
 			if(item == list[0] || item == list[numbers.size() - 1])
 				System.out.println(item);
-			
-			i++;
 		}
-		
-		//System.out.println(list[0]);
-		//System.out.println(list[numbers.size() - 1]);
+
 	}
 	
 	private void organizeNumbers() { //.Organizes the array list

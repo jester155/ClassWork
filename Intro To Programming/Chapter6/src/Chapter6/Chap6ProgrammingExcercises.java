@@ -3,19 +3,16 @@ package Chapter6;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Chap6ProgrammingExcercises {
-	
-	private static Scanner s = new Scanner(System.in);
-	private static Random r = new Random();
+class Chap6ProgrammingExcercises {
 	
 	private static void menu() {
 		
-		
 		System.out.println("Choose which Question you would like to see");
-		System.out.println("1: Question 1");
-		System.out.println("2: Question 2");
-		System.out.println("3: Question 3");
-			int c = s.nextInt();
+		
+		for(int i = 1 ; i < 4 ; i++)
+			System.out.println(i + ": Question " + i);
+
+		int c = s.nextInt();
 		
 		switch(c) {
 		
@@ -28,38 +25,35 @@ public class Chap6ProgrammingExcercises {
 				System.out.println("Enter in the length of a rectangle");
 					double length = s.nextDouble(); 
 				System.out.println(area(length , width));
-			break;
-			
+				break;
 			case 2:
 				//.-------------------------------------------------------------------------.//
 				//.PROGRAMMING EXCERCISE 2
 		
-				System.out.println("Enter the number of feet you would likt to convert to inches");
+				System.out.print("Enter the number of feet you would like to convert to inches: ");
 				System.out.println(feetToInches(s.nextDouble()));
-			break;
-		
+				break;
 			case 3:
 				//.-------------------------------------------------------------------------.//
 				//.PROGRAMMING EXCERCISE 3
 				mathQuiz();
-			break;
-		
+				break;
 			default:
-				System.out.println(c + " Not a vaid option!");
+				System.out.println(c + " not a vaid option!");
 				menu();
-			break;
+				break;
 		}
 	}
 	
-	private static double area(double l , double w) { //.ProEx 1
+	private static double area(double l , double w) { //.Programming Example 1
 		return l * w;
 	}
 	
-	private static double feetToInches(double feet) { //.ProEx 2
+	private static double feetToInches(double feet) { //.Programming Example 2
 		return feet * 12;
 	}
 	
-	private static void mathQuiz() { //.ProEx 3
+	private static void mathQuiz() { //.Programming Example 4
 		
 		int a = r.nextInt(1001);
 		int b = r.nextInt(1001);
@@ -73,9 +67,11 @@ public class Chap6ProgrammingExcercises {
 			System.out.println("The answer was: " + (a+b));
 	}
 	
-	public static void main(String[] args) {
-		menu();
-		
+	public static void main(String[] args) { //.Is the main method
+		menu();	
 	}
+	
+	private static Scanner s = new Scanner(System.in);
+	private static Random r = new Random();
 
 }
