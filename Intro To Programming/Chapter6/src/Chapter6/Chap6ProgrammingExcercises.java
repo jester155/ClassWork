@@ -7,7 +7,7 @@ class Chap6ProgrammingExcercises {
 	private static void menu() {
 		String[] questions = new String[] 
 				{"Rectangle Area", "Feet To Inches", "Math Quiz", "Maximum Two Values", 
-				"Falling Distance", "Kinetic Energy"};
+				"Falling Distance", "Kinetic Energy", "Test Average and Grade"};
 		
 		System.out.println("Choose which Question you would like to see");
 		
@@ -57,6 +57,11 @@ class Chap6ProgrammingExcercises {
 				System.out.println("Enter the mass in kg and velocity in m/s of an object to find its kinetic energy");
 				System.out.println(kineticEnergy(s.nextDouble(), s.nextDouble()));
 				break;
+			case 7:
+				//.-------------------------------------------------------------------------.//
+				//.PROGRAMMING EXERCISE 7: Test Average and Grade
+				calcAverage();
+				break;
 			default:
 				System.out.println(choice + " not a valid option!");
 				menu();
@@ -100,6 +105,35 @@ class Chap6ProgrammingExcercises {
 	//.Programming Exercise 6
 	private static double kineticEnergy(double m, double v) {
 		return (m * (Math.pow(v, 2))) / 2;
+	}
+	//.Programming Exercise 7
+	private static void calcAverage() {
+		double[] scores = new double[5];
+		String[] grades = new String[] {"A", "B", "C", "D", "F"};
+		double total = 0;
+		
+		System.out.println("Enter in 5 of your test scores to find the average");
+		for(int i = 0; i < 5 ; i++)
+			scores[i] = s.nextDouble();
+		
+		
+		for(double item : scores)
+			total = total + item;
+		
+		System.out.print(total/scores.length + ": ");
+	
+		//.Part o Loop
+		int gradeScale = 90;
+		int x = 0;
+		Boolean contLoop = true;
+		while(contLoop == true){
+			if(total/scores.length >= gradeScale) {
+				System.out.print("You got an " + grades[x]);
+				contLoop = false;
+			}
+			x++;
+			gradeScale = gradeScale - 10;
+		}
 	}
 	//.Is the main method
 	public static void main(String[] args) { 
