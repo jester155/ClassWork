@@ -1,3 +1,8 @@
+/*
+ *Mark Provenzano
+ *COP1000
+ *Chapter 6 PROGRAMMING EXERCISES
+ */
 package Chapter6;
 
 import java.util.*;
@@ -69,15 +74,15 @@ class Chap6ProgrammingExcercises {
 		}
 		
 	}
-	//.Programming Exercise 1
+	//.Programming Exercise 1: Finds the area of a rectangle
 	private static double area(double l , double w) { 
 		return l * w;
 	}
-	//.Programming Exercise 2
+	//.Programming Exercise 2: Converts feet into inches
 	private static double feetToInches(double feet) { 
 		return feet * 12;
 	}
-	//.Programming Exercise 3
+	//.Programming Exercise 3: This is a simple math quiz
 	private static void mathQuiz() { 
 		
 		int a = r.nextInt(1001);
@@ -91,22 +96,22 @@ class Chap6ProgrammingExcercises {
 		else
 			System.out.println("The answer was: " + (a + b));
 	}
-	//.Programming Exercise 4
+	//.Programming Exercise 4: Returns the greater value
 	private static int max(int x , int y) { 
 		if(x > y)
 			return x;
 		else
 			return y;
 	}
-	//.Programming Exercise 5
+	//.Programming Exercise 5: Finds the falling distance of an object over time
 	private static void fallingDistance(int time) {
 		System.out.println(.5 * (9.8 * (Math.pow((time), 2))) + " meters in " + time + " Seconds.");
 	}
-	//.Programming Exercise 6
+	//.Programming Exercise 6: Finds kinetic energy of an object
 	private static double kineticEnergy(double m, double v) {
 		return (m * (Math.pow(v, 2))) / 2;
 	}
-	//.Programming Exercise 7
+	//.Programming Exercise 7: Calculates teh average of 5 tests and displays the score and letter grade
 	private static void calcAverage() {
 		double[] scores = new double[5];
 		String[] grades = new String[] {"A", "B", "C", "D", "F"};
@@ -121,7 +126,11 @@ class Chap6ProgrammingExcercises {
 			total = total + item;	
 		
 		System.out.print(total/scores.length + ": ");
-	
+		
+		/*
+		 *While Loop that will check the score and print out the proper Letter Grade
+		 *This is so that there is not a bunch of if / else if statements
+		 */
 		int gradeScale = 90;
 		int x = 0;
 		Boolean contLoop = true;
@@ -142,7 +151,7 @@ class Chap6ProgrammingExcercises {
 	public static void main(String[] args) { 
 		menu();	
 	}
-	
+	//.Public Objects tat are used in the entire program.
 	private static Scanner s = new Scanner(System.in);
 	private static Random r = new Random();
 
