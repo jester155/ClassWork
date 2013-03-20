@@ -113,22 +113,25 @@ class Chap6ProgrammingExcercises {
 		double total = 0;
 		
 		System.out.println("Enter in 5 of your test scores to find the average");
+		
 		for(int i = 0; i < 5 ; i++)
 			scores[i] = s.nextDouble();
 		
-		
 		for(double item : scores)
-			total = total + item;
+			total = total + item;	
 		
 		System.out.print(total/scores.length + ": ");
 	
-		//.Part o Loop
 		int gradeScale = 90;
 		int x = 0;
 		Boolean contLoop = true;
 		while(contLoop == true){
 			if(total/scores.length >= gradeScale) {
 				System.out.print("You got an " + grades[x]);
+				contLoop = false;
+			}
+			else if(total/scores.length < 50){
+				System.out.print("You got an " + grades[4]);
 				contLoop = false;
 			}
 			x++;
