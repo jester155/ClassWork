@@ -48,29 +48,29 @@ public class Chap6Functions {
 			
 		}
 	}
-	
-	public static int randNum(int num) { //.Algorithm Workbench 1 
+	//.Algorithm Workbench 1
+	public static int randNum(int num) {  
 		return r.nextInt(num);
 	}
-	
-	private static double half(int number) { //.Algorithm Workbench 2 
+	//.Algorithm Workbench 2 
+	private static double half(int number) { 
 		return number / 2;
 	}
-	
-	private static int cube(int num) { //.Algorithm Workbench 3
+	//.Algorithm Workbench 3
+	private static int cube(int num) { 
 		return (int) Math.pow(num, 3);
 	}
-	
-	private static int timesTen(int x) { //.Algorithm Workbench 4
+	//.Algorithm Workbench 4
+	private static int timesTen(int x) { 
 		return x * 10;
 	}
-	
-	private static String getFirstName() { //.Algorithm Workbench 5
+	//.Algorithm Workbench 5
+	private static String getFirstName() { 
 		System.out.print("Please enter your frist name: ");
 		return s.next();
 	}
-	
-	private static String upperCase(String str1) { //.Algorithm Workbench 6
+	//.Algorithm Workbench 6
+	private static String upperCase(String str1) { 
 		return str1.toUpperCase();
 	}
 	
