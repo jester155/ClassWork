@@ -1,11 +1,7 @@
+package MiniGames;
 import java.util.*;
 
 public class HangMan {
-	
-	private static Scanner scan = new Scanner(System.in);
-	private static Random rand = new Random();
-	private static List<String> usedLetters = new ArrayList<>();
-	private static List<String> words = new ArrayList<>();
 	
 	private static void setWordBank() {
 		words.add("hello");
@@ -19,12 +15,17 @@ public class HangMan {
 		String answer = "";
 		String[] characters = new String[word.length()];
 		
-		System.out.println("The word contains " + word.length() + " letters");
+		System.out.println("The word contains " + word.length() + " letters\n");
 		
 		while(arrayNullCheck(characters) != true) {
 			String partial = "";
+			if(usedLetters != null) {
+				System.out.print("Used letters:");
+				for(String letters : usedLetters)
+					System.out.print(" '" + letters + "' ");
+			}
 			
-			System.out.println("Enter in a letter");
+			System.out.print("\nEnter in a letter: ");
 				choice = scan.next();
 		
 			if(usedLetters.contains(choice))
@@ -51,13 +52,16 @@ public class HangMan {
 	            	partial += " " + characters[i] + " ";
 	            else {
 	            	characters[i] = " _ ";
-	            partial += characters[i];
-	            characters[i] = null;
+	            	partial += characters[i];
+	            	characters[i] = null;
 	            }
 	        }
-			System.out.println(partial);
-		
+			System.out.println("\n" + partial + "\n");
+			
+			Collections.sort(usedLetters);
+			
 		}
+		
 		
 		getResult(characters, answer, word);
 			
@@ -72,6 +76,7 @@ public class HangMan {
 		else
 			System.out.println("you lost");
 	}
+	
 	private static int countCharacters(String word , String choice) {
 		int count = 0;
 		for(int i =0; i < word.length(); i++)
@@ -88,7 +93,7 @@ public class HangMan {
 	
 	private static boolean arrayNullCheck(String[] check) {
 		
-		for(int i = 0; i < check.length ; i++){
+		for(int i = 0; i < check.length ; i++) {
 			if(check[i] == null)
 				return false;
 		}
@@ -102,7 +107,7 @@ public class HangMan {
 	private static String getWord() {
 		String word = words.get(rand.nextInt(words.size()));
 		if(word.equals("hello"))
-			System.out.println("This word is a common used greeting in the englis lanuage");
+			System.out.println("This word is a common used greeting in the english lanuage");
 		else if(word.equals("world"))
 			System.out.println("The earth, together with all of its countries, peoples, and natural features");
 		else if(word.equals("lollipop"))
@@ -115,5 +120,10 @@ public class HangMan {
 		setWordBank();
 		player();
 	}
+	
+	private static Scanner scan = new Scanner(System.in);
+	private static Random rand = new Random();
+	private static List<String> usedLetters = new ArrayList<>();
+	private static List<String> words = new ArrayList<>();
 	
 }
