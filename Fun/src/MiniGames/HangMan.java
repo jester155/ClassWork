@@ -1,15 +1,33 @@
 package MiniGames;
 import java.util.*;
+import java.io.*;
 
 public class HangMan {
 	
-	private static void setWordBank() {
-		words.add("hello");
-		words.add("lollipop");
-		words.add("world");
-	}
+	private static void setWordBank() throws IOException {
+        BufferedReader in = null;
+        FileReader fr = null;
+        
+        try {
+            fr = new FileReader("bin\\WordBank\\Words.txt");
+            in = new BufferedReader(fr);
+            String str;
+            while ((str = in.readLine()) != null) {
+                words.add(str);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            in.close();
+            fr.close();
+        }
+
+        for (String item : words)
+        		System.out.print(" '" + item + "' ");
+    }
 	
-	private static void player() {
+	private static void player() throws IOException {
 		String word = getWord(); 
 		String choice;
 		String answer = "";
@@ -104,18 +122,35 @@ public class HangMan {
 		return answer.equals(word);
 	}
 	
-	private static String getWord() {
+	private static String getWord() throws IOException {
+		String[] definitions = new String[words.size()];
 		String word = words.get(rand.nextInt(words.size()));
-		if(word.equals("hello"))
-			System.out.println("This word is a common used greeting in the english lanuage");
-		else if(word.equals("world"))
-			System.out.println("The earth, together with all of its countries, peoples, and natural features");
-		else if(word.equals("lollipop"))
-			System.out.println("A flat, rounded candy on the end of a stick.");
+		
+        BufferedReader in = null;
+        FileReader fr = null;
+        int i = 0;
+        try { 
+        	fr = new FileReader("bin\\WordBank\\Definitions.txt");
+        	in = new BufferedReader(fr);
+            String str;
+        	while ((str = in.readLine()) != null) {
+            	definitions[i] = str;
+            	i++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            in.close();
+            fr.close();
+        }
+        
+        System.out.println("\n" + definitions[words.indexOf(word)] + "\n");
+		
 		return word;
+		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		setWordBank();
 		player();
